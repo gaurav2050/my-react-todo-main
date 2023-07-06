@@ -128,7 +128,7 @@ function App() {
         <h1>Key React Concepts</h1>
         <p>Selected key React concepts you should know about</p>
       </header>
-      <div className="completionDetail">{25}% Completed </div>
+      <div className="completionDetail">{26}% Completed </div>
       <Concepts data={concepts} />
     </div>
   );
