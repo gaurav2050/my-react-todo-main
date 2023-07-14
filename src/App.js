@@ -1,3 +1,4 @@
+import { useState } from "react";
 import keyConceptsImage from "./assets/images/key-concepts.png";
 // import stateImage from "./assets/images/state.png";
 // import eventsImage from "./assets/images/events.png";
@@ -121,6 +122,14 @@ const concepts = [
 ];
 
 function App() {
+
+  const [completedPercentage, updateCompletedPercentage] = useState("0");
+
+  const checkboxCheckedHandler = (completionStatus) => {
+    console.log("completion status at app js:" + completionStatus);
+    updateCompletedPercentage(completionStatus * 100);
+  };
+
   return (
     <div>
       <header>
@@ -128,8 +137,8 @@ function App() {
         <h1>Key React Concepts</h1>
         <p>Selected key React concepts you should know about</p>
       </header>
-      <div className="completionDetail">{26}% Completed </div>
-      <Concepts data={concepts} />
+      <div className="completionDetail">{completedPercentage}% Completed </div>
+      <Concepts data={concepts} onTopicsCompletion={checkboxCheckedHandler} />
     </div>
   );
 }
